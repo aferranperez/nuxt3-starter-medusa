@@ -21,3 +21,4 @@ await useAsyncData("init-medusa", async () => {
     await initialize();
 });
 </script>
+

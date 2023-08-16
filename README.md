@@ -1,6 +1,6 @@
 > WARNING: I won't work on this starter anymore in the future, as I migrated from Vue/Nuxt to React/Next. Feel free to fork this starter or contact me to gain access to the repo.
 
-# Medusa Nuxt 3 Starter [UNMAINTAINED]
+# Medusa Nuxt 3 Starter
 
 ## Requirements
 

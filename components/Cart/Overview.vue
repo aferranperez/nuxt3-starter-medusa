@@ -58,8 +58,10 @@
 
 <script setup lang="ts">
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
-import { ShoppingBagIcon } from "@heroicons/vue/outline";
+import {  } from '@heroicons/vue/24/solid'
 import { UseStoreRefs } from "~/types/stores";
+import { useStore } from '@/stores/useStore'
+import { storeToRefs } from 'pinia'
 
 const store = useStore();
 const { cart }: UseStoreRefs = storeToRefs(store) as any;

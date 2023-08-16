@@ -9,6 +9,8 @@
 
 <script setup lang="ts">
 import { UseDisplayRefs } from "~/types/stores";
+import { useDisplay } from '@/stores/useDisplay'
+import { storeToRefs } from 'pinia'
 
 const display = useDisplay();
 const { cartView }: UseDisplayRefs = storeToRefs(display);

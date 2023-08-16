@@ -132,6 +132,8 @@
 import { Product } from "@medusajs/medusa";
 import { RadioGroup, RadioGroupLabel, RadioGroupOption } from "@headlessui/vue";
 import { UseStoreRefs } from "~~/types/stores";
+import { useStore } from '@/stores/useStore'
+import { storeToRefs } from 'pinia'
 
 const { $medusa } = useNuxtApp();
 const route = useRoute();

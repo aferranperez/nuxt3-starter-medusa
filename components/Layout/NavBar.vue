@@ -43,7 +43,7 @@
                 <button
                     class="h-full border-b-2 border-transparent py-4 text-grey-40 transition-colors hover:text-grey-50"
                 >
-                    <SearchIcon class="h-full" />
+                    <ShoppingBagIcon class="h-full" />
                 </button>
                 <transition
                     enter-active-class="transition ease-out duration-100"
@@ -61,7 +61,7 @@
 </template>
 
 <script setup lang="ts">
-import { SearchIcon } from "@heroicons/vue/outline";
+import { ShoppingBagIcon } from '@heroicons/vue/24/solid';
 
 const route = useRoute();
 </script>

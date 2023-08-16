@@ -79,7 +79,7 @@
 </template>
 
 <script setup lang="ts">
-import { ArrowRightIcon } from "@heroicons/vue/solid";
+import { ArrowRightIcon } from '@heroicons/vue/24/solid';
 
 const { fetchProductsOverview, fetchCollectionsOverview } = useFetches();
 

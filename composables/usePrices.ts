@@ -1,6 +1,8 @@
 import { UseStoreRefs } from "~/types/stores";
 import { Product, ProductVariant } from "@medusajs/medusa";
 import defaults from "~/utils/defaults";
+import { useStore } from '@/stores/useStore'
+import { storeToRefs } from 'pinia'
 
 export const usePrices = () => {
     const store = useStore();

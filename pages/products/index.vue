@@ -159,8 +159,11 @@ import {
     XIcon,
     ViewGridIcon,
     MenuAlt2Icon,
-} from "@heroicons/vue/solid";
+} from '@heroicons/vue/24/solid';
+
 import { UsePreferencesRefs } from "~/types/stores";
+import { usePreferences } from '@/stores/usePreferences'
+import { storeToRefs } from 'pinia'
 
 const preferences = usePreferences();
 const { productsDisplay }: UsePreferencesRefs = storeToRefs(preferences) as any;

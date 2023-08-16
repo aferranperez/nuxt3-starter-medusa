@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { PlusIcon, MinusIcon } from "@heroicons/vue/solid";
+import { PlusIcon, MinusIcon } from '@heroicons/vue/24/solid'
 
 type Size = "normal" | "small";
 

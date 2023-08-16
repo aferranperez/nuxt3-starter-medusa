@@ -1,6 +1,8 @@
 import { ProductVariant } from "@medusajs/medusa";
 import { ComputedRef } from "vue";
 import { UseStoreRefs } from "~/types/stores";
+import { useStore } from '@/stores/useStore'
+import { storeToRefs } from 'pinia'
 
 export const useHelpers = () => {
     const store = useStore();

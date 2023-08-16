@@ -43,8 +43,10 @@
 
 <script setup lang="ts">
 import { LineItem } from "@medusajs/medusa";
-import { TrashIcon } from "@heroicons/vue/solid";
+import { TrashIcon } from '@heroicons/vue/24/solid'
 import { UseStoreRefs } from "~/types/stores";
+import { useStore } from '@/stores/useStore'
+import { storeToRefs } from 'pinia'
 
 const props = defineProps<{ item: LineItem }>();
 

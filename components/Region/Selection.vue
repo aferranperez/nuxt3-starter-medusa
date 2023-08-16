@@ -71,6 +71,8 @@ import { ChevronDownIcon } from "@heroicons/vue/outline";
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
 import { Country, Region } from "@medusajs/medusa";
 import { UseStoreRefs } from "~/types/stores";
+import { useStore } from "@/stores/useStore";
+import { storeToRefs } from 'pinia'
 
 const store = useStore();
 const { countryName, regions, currencyCode }: UseStoreRefs = storeToRefs(

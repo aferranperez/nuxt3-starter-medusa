@@ -15,16 +15,22 @@
         "@heroicons/vue": "^2.0.18",
         "@medusajs/medusa": "^1.13.1",
         "@medusajs/medusa-js": "^6.0.2",
+        "@nuxt/devtools": "^1.0.5",
         "@nuxt/kit": "3.6.5",
         "@nuxtjs/tailwindcss": "^6.8.0",
         "@pinia/nuxt": "^0.4.11",
         "@tailwindcss/forms": "^0.5.4",
         "@vueuse/core": "^10.3.0",
         "@vueuse/nuxt": "^10.3.0",
+        "daisyui": "^4.4.19",
         "nuxt": "3.6.5",
+        "nuxt-primevue": "^0.2.2",
         "pinia": "^2.1.6",
         "postcss-custom-properties": "^13.3.0",
         "prettier": "^3.0.2",
         "prettier-plugin-tailwindcss": "^0.5.3"
+    },
+    "dependencies": {
+        "primeicons": "^6.0.1"
     }
 }

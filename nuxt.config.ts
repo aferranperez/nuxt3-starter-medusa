@@ -16,6 +16,8 @@ export default defineNuxtConfig({
         public: {
             BACKEND_URL:
                 process.env.NUXT_PUBLIC_MEDUSA_URL || "http://localhost:9000",
+            PUBLISHABLE_API_KEY:
+                process.env.PUBLISHABLE_API_KEY
         },
     },
     tailwindcss: {

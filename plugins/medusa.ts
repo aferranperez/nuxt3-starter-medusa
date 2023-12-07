@@ -5,7 +5,8 @@ export default defineNuxtPlugin((nuxtApp) => {
 
     const client = new Medusa({
         baseUrl: runtimeConfig.public.BACKEND_URL,
-        maxRetries: 2,
+        maxRetries: 3,
+        publishableApiKey: runtimeConfig.public.PUBLISHABLE_API_KEY
     });
 
     return {

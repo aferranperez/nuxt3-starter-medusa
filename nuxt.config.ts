@@ -7,10 +7,9 @@ export default defineNuxtConfig({
         "@pinia/nuxt",
         "@vueuse/nuxt",
         '@nuxt/devtools',
-        'nuxt-primevue',
         "./modules/storesAutoImports",
     ],
-    css: ["@/assets/css/main.css", "@/assets/css/fonts.css",'primeicons/primeicons.css'],
+    css: ["@/assets/css/main.css", "@/assets/css/fonts.css"],
     build: {
         transpile: ["@heroicons/vue", "@headlessui/vue"],
     },

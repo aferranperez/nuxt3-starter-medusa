@@ -1,10 +1,12 @@
 module.exports = {
     content: [
-        "components/**/*.{vue,ts}",
+        "components/**/*.{js,vue,ts}",
         "layouts/**/*.vue",
         "pages/**/*.vue",
         "composables/**/*.{js,ts}",
         "plugins/**/*.{js,ts}",
+        "./nuxt.config.{js,ts}",
+        "./node_modules/flowbite/**/*.{js,ts}",
         "app.vue",
     ],
     theme: {
@@ -161,5 +163,8 @@ module.exports = {
             },
         },
     },
-    plugins: [require("@tailwindcss/forms"), require("daisyui")],
+    plugins: [
+        require("@tailwindcss/forms"),
+        require("daisyui"), 
+    ],
 };

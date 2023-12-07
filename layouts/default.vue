@@ -1,5 +1,5 @@
 <template>
-    <div class="flex min-h-screen flex-col bg-white">
+    <div class="flex min-h-screen flex-col">
         <LayoutNavBar/>
             <main>
                 <slot/>

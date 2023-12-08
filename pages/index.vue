@@ -1,5 +1,6 @@
 <template>
     <div class="">
+        <!-- Carousel -->
         <div
             class="relative flex items-center justify-center bg-[url('https://picsum.photos/id/1059/1920/1080')] bg-cover bg-center py-48"
         >
@@ -19,6 +20,8 @@
             </div>
             <div class="absolute inset-0 z-0 bg-black/75"></div>
         </div>
+
+        <!-- Productos -->
         <div class="py-20 px-4">
             <div class="custom-container">
                 <div class="flex items-center justify-between">
@@ -34,6 +37,8 @@
                 <ProductGrid class="mt-10" :products="products" />
             </div>
         </div>
+
+
         <div v-if="collections.length > 0" class="py-20 px-4">
             <div class="custom-container">
                 <div class="flex items-center justify-between">
@@ -85,4 +90,5 @@ const { fetchProductsOverview, fetchCollectionsOverview } = useFetches();
 
 const products = await fetchProductsOverview();
 const collections = await fetchCollectionsOverview();
+
 </script>

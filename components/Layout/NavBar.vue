@@ -1,6 +1,6 @@
 <template>
     <header class="navbar sticky top-0 z-50 bg-transparent backdrop-filter backdrop-blur-lg">
-      
+
       <!-- Start Navbar -->
       <div class="navbar-start">
         <div class="dropdown">
@@ -81,5 +81,9 @@
       </div>
     </header>
 </template>
+
+<script lang="ts" setup>
+  
+</script>
 
 

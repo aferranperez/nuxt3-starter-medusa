@@ -153,13 +153,7 @@
 
 <script setup lang="ts">
 import { Disclosure, DisclosurePanel, DisclosureButton } from "@headlessui/vue";
-import {
-    MinusSmIcon,
-    PlusSmIcon,
-    XIcon,
-    ViewGridIcon,
-    MenuAlt2Icon,
-} from '@heroicons/vue/24/solid';
+
 
 import { UsePreferencesRefs } from "~/types/stores";
 import { usePreferences } from '@/stores/usePreferences'

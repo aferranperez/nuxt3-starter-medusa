@@ -22,6 +22,6 @@ export default defineNuxtConfig({
         },
     },
     tailwindcss: {
-        viewer: false,
+        viewer: true,
     },
 });

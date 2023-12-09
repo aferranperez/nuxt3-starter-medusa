@@ -4,14 +4,43 @@
             <div class="grid grid-cols-5 gap-8">
                 <!-- Imagen -->
                 <div class="col-span-2">
-                    <ProductDetailsGallery
-                        :product_title="product?.title"
-                        :product_images="product?.images" 
-                        :product_thumbnail="product?.thumbnail"
-                    />
+                    <transition
+                        enter-active-class="transition ease duration-300"
+                        enter-from-class="opacity-0"
+                        enter-to-class="opacity-100"
+                        leave-active-class="transition ease duration-300"
+                        leave-from-class="opacity-100"
+                        leave-to-class="opacity-0"
+                        mode="out-in"
+                    >
+                        <img
+                            :key="imageUrl"
+                            :src="imageUrl"
+                            :alt="product.title"
+                            class="rounded-2xl"
+                        />
+                    </transition>
+                    <div
+                        class="mt-6 grid grid-cols-4 gap-2"
+                        v-if="product.images.length > 1"
+                    >
+                        <button
+                            v-for="image of product.images"
+                            @click="imageUrl = image.url"
+                        >
+                            <img
+                                :src="image.url"
+                                :alt="product.title"
+                                class="rounded-md border-2 transition-all"
+                                :class="[
+                                    imageUrl === image.url
+                                        ? 'border-violet-50'
+                                        : 'border-transparent',
+                                ]"
+                            />
+                        </button>
+                    </div>
                 </div>
-
-                
                 <!-- Description -->
                 <div class="col-span-3">
                     <h1 class="mb-2 text-4xl font-bold">{{ product?.title }}</h1>
@@ -79,7 +108,6 @@
                             </RadioGroup>
                         </div>
                     </div>
-                    <!-- Add to cart -->
                     <div class="mt-10 flex space-x-4">
                         <button
                             @click="addToCart()"
@@ -104,20 +132,17 @@
 </template>
 
 <script setup lang="ts">
-import { Product, ProductCollection } from "@medusajs/medusa";
+import { Product } from "@medusajs/medusa";
 import { RadioGroup, RadioGroupLabel, RadioGroupOption } from "@headlessui/vue";
 import { UseStoreRefs } from "~~/types/stores";
 import { useStore } from '@/stores/useStore'
 import { storeToRefs } from 'pinia'
 
 const { $medusa } = useNuxtApp();
-const { fetchCollections } = useFetches();
-
-// Sacar el slug de la ruta
 const route = useRoute();
+
 const slug: string = route.params.slug as string;
 
-// Fetch el producto
 const { data: product } = await useAsyncData(`product-${slug}`, async () => {
     const { products } = await $medusa.products.list({
         limit: 1,
@@ -126,9 +151,6 @@ const { data: product } = await useAsyncData(`product-${slug}`, async () => {
     return products[0];
 });
 
-const collections = await fetchCollections();
-
-// Mostrar error
 if (!product.value) {
     useCustomError({
         statusCode: 404,
@@ -136,25 +158,25 @@ if (!product.value) {
     });
 }
 
-// Extraer las variaciones del producto
+const { fetchCollections } = useFetches();
+
+const collections = await fetchCollections();
+
 const { filters: _filters } = useFilters({
     products: [product.value as Product],
-    collections: [collections.value as ProductCollection],
+    collections: collections.value,
 });
 
-// Filtrar solamente las variaciones del producto
 const filters = computed(() =>
     _filters.value.filter(({ name }) => name !== "Collection")
 );
 
-// De las variaciones marcar las que estan seleccionadas
 const selectedOptions = ref(
     Object.fromEntries(
         filters.value.map(({ name, options }) => [name, options[0].value])
     )
 );
 
-// Consolida la combinacion de las diferentes variaciones en un solo producto
 const variant = computed(() => {
     return product.value.variants.find((variant) => {
         return variant.options.every(
@@ -171,7 +193,6 @@ const variant = computed(() => {
     });
 });
 
-
 const { formatPrice } = usePrices();
 
 const price = computed(() => formatPrice(variant.value));
@@ -180,6 +201,12 @@ const { variantQuantity } = useHelpers();
 const { quantity, increment, decrement, reset, hasStock } =
     variantQuantity(variant);
 
+const imageUrl = ref(
+    product.value.thumbnail ||
+        `https://via.placeholder.com/1678x2098/F3F4F6/6B7280?text=${encodeURIComponent(
+            product.value.title
+        )}`
+);
 
 const store = useStore();
 const { adding }: UseStoreRefs = storeToRefs(store) as any;
